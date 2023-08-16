@@ -36,6 +36,24 @@ class ChandrayaanSpacecraftTest {
         finalPosition = spacecraft.executeCommands(commands);
         assertArrayEquals(new int[]{0, -2, -2}, finalPosition);
         assertEquals('D', spacecraft.getDirection());
+
+        // Test case 4
+        initialPosition = new int[]{-5, 7, 3};
+        initialDirection = 'W';
+        commands = new char[]{'r', 'f', 'u', 'u', 'b', 'l', 'f'};
+        spacecraft = new ChandrayaanSpacecraft(initialPosition, initialDirection);
+        finalPosition = spacecraft.executeCommands(commands);
+        assertArrayEquals(new int[]{-6, 7, 5}, finalPosition);
+        assertEquals('U', spacecraft.getDirection());
+
+        // Test case 5
+        initialPosition = new int[]{1, -1, 0};
+        initialDirection = 'S';
+        commands = new char[]{'f', 'r', 'f', 'r', 'f', 'l', 'f', 'l'};
+        spacecraft = new ChandrayaanSpacecraft(initialPosition, initialDirection);
+        finalPosition = spacecraft.executeCommands(commands);
+        assertArrayEquals(new int[]{1, 0, 0}, finalPosition);
+        assertEquals('S', spacecraft.getDirection());
     }
 }
 
